@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api_v1:
+    build: ./
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app  # Code volume
+      - /home/ubuntu/backend-data:/app-data  # Bind mount to a directory on the host machine
+    restart: always
+    env_file:
+      - ./.env
